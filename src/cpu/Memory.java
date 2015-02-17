@@ -1,17 +1,14 @@
-package mv;
+package cpu;
 
-/**
- * Emula una memoria ilimitada.
- * @author Samuel Lapuente y Héctor Laria.
- *
+/** 
+ * Emula una memoria ilimitada. 
+ * @author Samuel Lapuente y Héctor Laria. 
+ * 
  */
 public class Memory {
 	private Integer[] memory;
 	private int capacity = 100;
-	
-	/**
-	 * Constructor de Memory.
-	 */
+
 	public Memory() {
 		this.memory = new Integer[this.capacity];
 		
@@ -31,36 +28,23 @@ public class Memory {
 		this.capacity = nuevaCapacity;
 		this.memory = nuevaMem;
 	}
-	
-	/**
-	 * Método que guarda un dato de pila en memoria.
-	 * @param pos Posición donde guardar.
-	 * @param dato Dato a guardar.
-	 */
+
 	public void guardar (int pos, int dato) {
 		
 		if (pos >=this.capacity) this.resize(pos);
 		this.memory[pos] = dato;
 	}
-	
-	/**
-	 * Método que carga un dato de memoria a pila.
-	 * @param pos Posición a cargar.
-	 * @return Dato alojado en la posición.
-	 */
+
 	public int cargar (int pos) {
-		if (pos >= this.capacity) return (int) (Math.random()*100);
+		if (pos >= this.capacity) return (int) (Math.random() * 100);
 		else {
 			if (this.memory[pos] == null)
-				return (int) (Math.random()*100);
+				return (int) (Math.random() * 100);
 			else
 				return this.memory[pos];
 		}
 	}
-	
-	/**
-	 * Método toString de Memory.
-	 */
+
 	public String toString() {
 		String s = "Memoria: ";
 		String celdas = "";
