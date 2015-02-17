@@ -3,8 +3,9 @@ package mv.ins.branch;
 import mv.cpu.ExecutionManager;
 import mv.cpu.Memory;
 import mv.cpu.OperandStack;
-import mv.exceptions.insException.NoArgsException;
 import mv.ins.Instruction;
+import mv.mvSystem.in.InStream;
+import mv.mvSystem.out.OutStream;
 
 public class BF extends Branch {
 	
@@ -16,11 +17,10 @@ public class BF extends Branch {
 		this.argumento = n;
 	}
 	
-	public void execute(Memory mem, OperandStack pila, ExecutionManager gestor) {
-		if (pila.esVacia()) throw new NoArgsException();
+	public void execute (Memory<Integer> mem, OperandStack<Integer> pila, ExecutionManager gestor, InStream in, OutStream out) {
 		if (this.argumento < 0) throw new IllegalArgumentException("La posición a saltar debe ser positiva");
 	
-		if (pila.desapilar() == 0)
+		if (pila.pop() == 0)
 			gestor.setNextPC(this.argumento);
 	}
 

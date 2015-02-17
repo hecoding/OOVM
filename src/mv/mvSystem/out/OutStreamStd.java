@@ -1,10 +1,10 @@
 package mv.mvSystem.out;
 
-public class OutStrategyStd implements OutStrategy {
+public class OutStreamStd implements OutStream {
 
 	public void open() { }
 	public void close() { }
-	public void write(int c) {
+	public void writeChar(int c) {
 		System.out.print( (char)c );
 	}
 

@@ -13,14 +13,8 @@ public class Step extends Normal {
 	 * Ejecuta el comando step, lo cual ejecuta una instrucción.
 	 */
 	public void executeCommand() throws NoInstructionsException {
-		
-		if (mustShowState)
-			System.out.println ("Comienza la ejecución de " + cpu.getCurrentInstr());
-		
 		CommandInterpreter.cpu.step();
 		
-		if (mustShowState)
-			System.out.println ("El estado de la máquina tras ejecutar la instrucción es:" + System.lineSeparator() + cpu);
 	}
 
 	public CommandInterpreter crear() {

@@ -3,8 +3,9 @@ package mv.ins.bool;
 import mv.cpu.ExecutionManager;
 import mv.cpu.Memory;
 import mv.cpu.OperandStack;
-import mv.exceptions.insException.NoArgsException;
 import mv.ins.Instruction;
+import mv.mvSystem.in.InStream;
+import mv.mvSystem.out.OutStream;
 
 public class Not extends Bool {
 	
@@ -12,13 +13,11 @@ public class Not extends Bool {
 		super();
 	}
 
-	public void execute(Memory mem, OperandStack pila, ExecutionManager gestor) {
-		if (pila.esVacia()) throw new NoArgsException();
-
-		int cima = pila.desapilar();
+	public void execute (Memory<Integer> mem, OperandStack<Integer> pila, ExecutionManager gestor, InStream in, OutStream out) {
+		int cima = pila.pop();
 			
-		if (cima == 0) pila.apilar(1);
-		else pila.apilar(0);
+		if (cima == 0) pila.push(1);
+		else pila.push(0);
 	}
 	
 	protected Instruction crear() {

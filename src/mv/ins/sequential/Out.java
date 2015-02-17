@@ -2,28 +2,37 @@ package mv.ins.sequential;
 
 import java.io.IOException;
 
+import mv.cpu.CPU;
 import mv.cpu.ExecutionManager;
 import mv.cpu.Memory;
 import mv.cpu.OperandStack;
-import mv.exceptions.cpuExceptions.HardwareException;
-import mv.exceptions.insException.NoArgsException;
+import mv.exceptions.cpuExceptions.MVError;
 import mv.ins.Instruction;
-import mv.mvSystem.MVSystem;
+import mv.mvSystem.in.InStream;
+import mv.mvSystem.out.OutStream;
 
 public class Out extends Sequential {
 	
 	public Out() {
 		super();
 	}
-
-	public void execute(Memory mem, OperandStack pila, ExecutionManager gestor) {
-		if (pila.esVacia()) throw new NoArgsException();
-		
+	
+	public void execute (CPU cpu) {
 		try {
-			MVSystem.out.write (pila.desapilar());
+			cpu.getOutStream().writeChar(cpu.getOperandStack().pop());
 			
 		} catch (IOException e) {
-			throw new HardwareException (this, e.getMessage());
+			throw new MVError (this, e.getMessage());
+		}
+
+	}
+
+	public void execute (Memory<Integer> mem, OperandStack<Integer> pila, ExecutionManager gestor, InStream in, OutStream out) {
+		try {
+			out.writeChar (pila.pop());
+			
+		} catch (IOException e) {
+			throw new MVError (this, e.getMessage());
 		}
 	}
 

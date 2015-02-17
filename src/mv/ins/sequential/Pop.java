@@ -3,8 +3,9 @@ package mv.ins.sequential;
 import mv.cpu.ExecutionManager;
 import mv.cpu.Memory;
 import mv.cpu.OperandStack;
-import mv.exceptions.insException.NoArgsException;
 import mv.ins.Instruction;
+import mv.mvSystem.in.InStream;
+import mv.mvSystem.out.OutStream;
 
 public class Pop extends Sequential {
 	
@@ -12,10 +13,8 @@ public class Pop extends Sequential {
 		super();
 	}
 
-	public void execute(Memory mem, OperandStack pila, ExecutionManager gestor) {
-		if (pila.esVacia()) throw new NoArgsException();
-		
-		pila.desapilar();
+	public void execute (Memory<Integer> mem, OperandStack<Integer> pila, ExecutionManager gestor, InStream in, OutStream out) {
+		pila.pop();
 	}
 
 	protected Instruction crear() {

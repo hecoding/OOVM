@@ -3,8 +3,9 @@ package mv.ins.arithmetics;
 import mv.cpu.ExecutionManager;
 import mv.cpu.Memory;
 import mv.cpu.OperandStack;
-import mv.exceptions.insException.NotEnoughArgsException;
 import mv.ins.Instruction;
+import mv.mvSystem.in.InStream;
+import mv.mvSystem.out.OutStream;
 
 public class Sub extends Arithmetics {
 	
@@ -12,14 +13,11 @@ public class Sub extends Arithmetics {
 		super();
 	}
 
-	public void execute(Memory mem, OperandStack pila, ExecutionManager gestor) {
-		if (pila.getSize() < 2) throw new NotEnoughArgsException();
-		else {
-			int cima = pila.desapilar();
-			int subcima = pila.desapilar();
-			
-			pila.apilar(subcima - cima);
-		}
+	public void execute (Memory<Integer> mem, OperandStack<Integer> pila, ExecutionManager gestor, InStream in, OutStream out) {
+		int cima = pila.pop();
+		int subcima = pila.pop();
+
+		pila.push(subcima - cima);
 	}
 
 	protected Instruction crear() {

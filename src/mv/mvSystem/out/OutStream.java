@@ -7,7 +7,7 @@ import java.io.IOException;
  * @author Samuel Lapuente y Héctor Laria
  *
  */
-public interface OutStrategy {
+public interface OutStream {
 	/**
 	 * Abre el stream de salida.
 	 * @throws IOException si ha habido algún problema al abrir.
@@ -19,7 +19,7 @@ public interface OutStrategy {
 	 * @param x La representación en entero del carácter a escribir.
 	 * @throws IOException si no se ha podido escribir.
 	 */
-	public void write(int x) throws IOException;
+	public void writeChar(int x) throws IOException;
 	
 	/**
 	 * Cierra el stream de salida.

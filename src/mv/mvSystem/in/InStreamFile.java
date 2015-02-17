@@ -5,12 +5,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class InStrategyFile implements InStrategy {
+public class InStreamFile implements InStream {
 	String fname;
 	FileReader f;
 	Scanner s;
 	
-	public InStrategyFile(String fname) {
+	public InStreamFile(String fname) {
 		this.fname = fname;
 	}
 	
@@ -28,5 +28,6 @@ public class InStrategyFile implements InStrategy {
 		if (f.ready()) return f.read();
 		else return -1;
 	}
+
 	
 }

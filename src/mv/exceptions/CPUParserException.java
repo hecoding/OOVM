@@ -6,6 +6,7 @@ package mv.exceptions;
  * @author Samuel Lapuente y Héctor Laria
  *
  */
+@SuppressWarnings("serial")
 public class CPUParserException extends Exception {
 	// ParseException de Java no se adecúa a nuestras necesidades porque no sabemos lo que es un errorOffset - Héctor
 	

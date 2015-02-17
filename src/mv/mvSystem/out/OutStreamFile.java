@@ -3,11 +3,11 @@ package mv.mvSystem.out;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class OutStrategyFile implements OutStrategy {
+public class OutStreamFile implements OutStream {
 	String fname;
 	FileWriter f;
 	
-	public OutStrategyFile(String fname) {
+	public OutStreamFile(String fname) {
 		this.fname = fname;
 	}
 	public void open() throws IOException {
@@ -16,7 +16,7 @@ public class OutStrategyFile implements OutStrategy {
 	public void close() throws IOException {
 		f.close();
 	}
-	public void write(int c) throws IOException {
+	public void writeChar(int c) throws IOException {
 		f.write((char)c);
 	}
 

@@ -4,7 +4,8 @@ import mv.cpu.ExecutionManager;
 import mv.cpu.Memory;
 import mv.cpu.OperandStack;
 import mv.ins.Instruction;
-import mv.exceptions.insException.NoArgsException;
+import mv.mvSystem.in.InStream;
+import mv.mvSystem.out.OutStream;
 
 public class JumpInd extends Branch {
 
@@ -12,9 +13,8 @@ public class JumpInd extends Branch {
 		super();
 	}
 	
-	public void execute(Memory mem, OperandStack pila, ExecutionManager gestor) {
-		if(pila.esVacia()) throw new NoArgsException();
-		int indice = pila.desapilar();
+	public void execute (Memory<Integer> mem, OperandStack<Integer> pila, ExecutionManager gestor, InStream in, OutStream out) {
+		int indice = pila.pop();
 		if (indice < 0) throw new IllegalArgumentException("La posición a saltar debe ser positiva");
 		
 		gestor.setNextPC (indice);	

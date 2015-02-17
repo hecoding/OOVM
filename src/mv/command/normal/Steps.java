@@ -21,15 +21,8 @@ public class Steps extends Step {
 	public void executeCommand() throws NoInstructionsException {
 		int i = 0;
 		
-		while (i < this.argumento && !CommandInterpreter.cpu.getHALT()) {
-			
-			if (mustShowState)
-				System.out.println ("Comienza la ejecución de " + cpu.getCurrentInstr());
-			
+		while (i < this.argumento && !CommandInterpreter.cpu.isHALT()) {
 			CommandInterpreter.cpu.step();
-			
-			if (mustShowState)
-				System.out.println ("El estado de la máquina tras ejecutar la instrucción es:" + System.lineSeparator() + cpu);
 			
 			i++;
 		}

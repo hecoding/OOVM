@@ -3,7 +3,7 @@ package mv.mvSystem.in;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class InStrategyStd implements InStrategy {
+public class InStreamStd implements InStream {
 	Scanner s;
 	
 	public void open() { this.s = new Scanner (System.in); }

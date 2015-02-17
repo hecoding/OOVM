@@ -1,6 +1,6 @@
 package mv.mvSystem.in;
 
-public class InStrategyNada implements InStrategy {
+public class InStreamNada implements InStream {
 	
 	public void open() { }
 	public void close() { }

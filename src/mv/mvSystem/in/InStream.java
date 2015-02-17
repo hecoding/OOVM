@@ -8,7 +8,7 @@ import java.io.IOException;
  * @author Samuel Lapuente y Héctor Laria
  *
  */
-public interface InStrategy {
+public interface InStream {
 	/**
 	 * Abre el stream de entrada.
 	 * @throws FileNotFoundException
@@ -21,11 +21,12 @@ public interface InStrategy {
 	 * @return el byte leído.
 	 * @throws IOException si no se ha podido escribir.
 	 */
-	public int read() throws IOException;
 	
 	/**
 	 * Cierra el stream de entrada.
 	 * @throws IOException si ha habido algún problema al cerrar.
 	 */
 	public void close() throws IOException;
+
+	public int read() throws IOException;
 }

@@ -6,6 +6,7 @@ package mv.exceptions.cpuExceptions;
  * @author Samuel Lapuente y Héctor Laria
  *
  */
+@SuppressWarnings("serial")
 public class NoInstructionsException extends Exception {
 	// Dado que no hay instrucciones en la máquina es un error irrecuperable, prefiero lanzar una checked Exception - Héctor
 	// http://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html

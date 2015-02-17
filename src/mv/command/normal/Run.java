@@ -8,20 +8,15 @@ public class Run extends Step {
 	public Run() {
 		super();
 	}
+	
 	/**
 	 * Ejecuta el comando run, que se encarga de ejecutar todas las instrucciones del usuario.
 	 */
 	public void executeCommand() throws NoInstructionsException {
-		while (!CommandInterpreter.cpu.getHALT()) {
-			
-			if (mustShowState)
-				System.out.println ("Comienza la ejecución de " + cpu.getCurrentInstr());
-			
-			CommandInterpreter.cpu.step();
-			
-			if (mustShowState)
-				System.out.println ("El estado de la máquina tras ejecutar la instrucción es:" + System.lineSeparator() + cpu);	
-		}
+		if (mustShowState)
+			cpu.verboseRun();
+		else
+			cpu.run();
 	}
 
 	public CommandInterpreter crear() {

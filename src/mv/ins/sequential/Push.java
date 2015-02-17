@@ -4,6 +4,8 @@ import mv.cpu.ExecutionManager;
 import mv.cpu.Memory;
 import mv.cpu.OperandStack;
 import mv.ins.Instruction;
+import mv.mvSystem.in.InStream;
+import mv.mvSystem.out.OutStream;
 
 public class Push extends Sequential {
 	private int argumento;
@@ -18,8 +20,8 @@ public class Push extends Sequential {
 		this.argumento = n;
 	}
 
-	public void execute(Memory mem, OperandStack pila, ExecutionManager gestor) {
-		pila.apilar(this.argumento);
+	public void execute (Memory<Integer> mem, OperandStack<Integer> pila, ExecutionManager gestor, InStream in, OutStream out) {
+		pila.push(this.argumento);
 		
 	}
 	

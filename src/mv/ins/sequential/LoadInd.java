@@ -3,8 +3,9 @@ package mv.ins.sequential;
 import mv.cpu.ExecutionManager;
 import mv.cpu.Memory;
 import mv.cpu.OperandStack;
-import mv.exceptions.insException.NoArgsException;
 import mv.ins.Instruction;
+import mv.mvSystem.in.InStream;
+import mv.mvSystem.out.OutStream;
 
 public class LoadInd extends Sequential {
 	
@@ -12,12 +13,11 @@ public class LoadInd extends Sequential {
 		super();
 	}
 
-	public void execute(Memory mem, OperandStack pila, ExecutionManager gestor) {
-		if (pila.esVacia()) throw new NoArgsException();
-		int aux = pila.desapilar();
+	public void execute (Memory<Integer> mem, OperandStack<Integer> pila, ExecutionManager gestor, InStream in, OutStream out) {
+		int aux = pila.pop();
 		if (aux < 0) throw new IllegalArgumentException("La posición a cargar debe ser positiva");
 		
-		pila.apilar(mem.cargar(aux));
+		pila.push(mem.cargar(aux));
 	}
 
 	protected Instruction crear() {

@@ -3,8 +3,9 @@ package mv.ins.sequential;
 import mv.cpu.ExecutionManager;
 import mv.cpu.Memory;
 import mv.cpu.OperandStack;
-import mv.exceptions.insException.NotEnoughArgsException;
 import mv.ins.Instruction;
+import mv.mvSystem.in.InStream;
+import mv.mvSystem.out.OutStream;
 
 public class Flip extends Sequential {
 
@@ -12,13 +13,11 @@ public class Flip extends Sequential {
 		super();
 	}
 
-	public void execute(Memory mem, OperandStack pila, ExecutionManager gestor) {
-		if (pila.getSize() < 2) throw new NotEnoughArgsException();
-		
-		int temp1 = pila.desapilar();
-		int temp2 = pila.desapilar();
-		pila.apilar(temp1);
-		pila.apilar(temp2);
+	public void execute (Memory<Integer> mem, OperandStack<Integer> pila, ExecutionManager gestor, InStream in, OutStream out) {
+		int temp1 = pila.pop();
+		int temp2 = pila.pop();
+		pila.push(temp1);
+		pila.push(temp2);
 	}
 	
 	protected Instruction crear() {

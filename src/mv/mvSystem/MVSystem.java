@@ -1,7 +1,7 @@
 package mv.mvSystem;
 
-import mv.mvSystem.in.InStrategy;
-import mv.mvSystem.out.OutStrategy;
+import mv.mvSystem.in.InStream;
+import mv.mvSystem.out.OutStream;
 
 /**
  * Interfaz que se encarga de la entrada y salida de la máquina virtual.
@@ -9,6 +9,6 @@ import mv.mvSystem.out.OutStrategy;
  *
  */
 public class MVSystem {
-	public static InStrategy in;
-	public static OutStrategy out;
+	public static InStream in;
+	public static OutStream out;
 }

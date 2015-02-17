@@ -1,7 +1,7 @@
 package mv.command.debugger;
 
 import mv.command.CommandInterpreter;
-import mv.exceptions.cpuExceptions.HardwareException;
+import mv.exceptions.cpuExceptions.MVError;
 import mv.exceptions.cpuExceptions.NoInstructionsException;
 import mv.ins.sequential.Push;
 import mv.ins.sequential.Store;
@@ -40,7 +40,7 @@ public class Write extends Debugger {
 	}
 	
 	public CommandInterpreter crear (int posicion, int valor) {
-		if (posicion < 0) throw new HardwareException ("Error: La posición debe ser igual a cero o positiva");
+		if (posicion < 0) throw new MVError ("Error: La posición debe ser igual a cero o positiva");
 		
 		return new Write(posicion, valor);
 	}

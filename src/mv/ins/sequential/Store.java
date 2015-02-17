@@ -3,8 +3,9 @@ package mv.ins.sequential;
 import mv.cpu.ExecutionManager;
 import mv.cpu.Memory;
 import mv.cpu.OperandStack;
-import mv.exceptions.insException.NoArgsException;
 import mv.ins.Instruction;
+import mv.mvSystem.in.InStream;
+import mv.mvSystem.out.OutStream;
 
 public class Store extends Sequential {
 	private int argumento;
@@ -19,11 +20,10 @@ public class Store extends Sequential {
 		this.argumento = n;
 	}
 
-	public void execute(Memory mem, OperandStack pila, ExecutionManager gestor) {
-		if (pila.esVacia()) throw new NoArgsException();
+	public void execute (Memory<Integer> mem, OperandStack<Integer> pila, ExecutionManager gestor, InStream in, OutStream out) {
 		if (this.argumento < 0) throw new IllegalArgumentException("La posición donde guardar debe ser positiva");
 		
-		mem.guardar(this.argumento, pila.desapilar());
+		mem.guardar(this.argumento, pila.pop());
 	}
 
 	protected Instruction crear() {
