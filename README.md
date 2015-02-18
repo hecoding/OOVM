@@ -1,10 +1,10 @@
 # OOVM
 This is a virtual machine made during our second course (2013 - 2014) with the purpose of learn Object Oriented Programming.
-It has three modes which can switched invoking with the `-m` parameter; interactive (CLI), batch and windows (GUI).
+It has three modes which can be switched invoking the program with the `-m` parameter; interactive (CLI), batch and windows (GUI).
 The default mode is interactive.   
-Comments, method names and some variables are in spanish because it was the language in which it was teached.
+Comments, method names and some variables are in spanish as it was the language in which was taught.
 
-This program emulates a regular machine having a stack and a memory, gets "assembler" code as the program to run, input data, and gives (or only shows) output data.   
+This program emulates a regular machine having a stack and a memory, gets "assembler" code as the program to run, input data, and gives (or shows only) output data.   
 In windowed and interactive mode it also has controls to start, pause, stop and restart the execution.
 
 ## Usage
